@@ -27,7 +27,7 @@
 <!-- rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr -->
 <div class="col-md-3">
   <div class="card">
-    <img class="card-img-top" src="holder.js/100x180/" alt=""> 
+    <img class="card-img-top" src="holder.js/100x180/" alt="">
     <div class="card-body">
       <h4 class="card-title">Modo de Lectura</h4>
       <p class="card-text">"r"-> read</p>
@@ -40,31 +40,32 @@
       $archivo = fopen("modos\datos.txt", "r");
       while(!feof($archivo)){
         $lineas=fgets($archivo);
-        echo $lineas;
+        // echo $lineas."<br>";
+        echo "$lineas<br>";
       }
+      fclose($archivo);
     }
     ?>
-<!-- <a name="leer" id="" class="btn btn-primary" href="#" role="button">leer</a> -->
       </div>
   </div>
 </div>
+<!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
 <div class="col-md-3">
   <div class="card">
-    <img class="card-img-top" src="holder.js/100x180/" alt=""> 
+    <img class="card-img-top" src="holder.js/100x180/" alt="">
     <div class="card-body">
       <h4 class="card-title">Modo de Escritura</h4>
       <p class="card-text">"a" -> agregar</p>
- <form action ="<?php $_SERVER['PHP_SELF'];?>" method="post" >
-      <input type="submit" name="escribir" value="Escribir">
+      <form action ="<?php $_SERVER['PHP_SELF'];?>" method="post" >
+      <textarea name="nueva_linea" id="" cols="30" rows="10"></textarea>
+      <input type="submit" name="agregar" value="Agregar">
     </form>
-  
-    <?php
-    if(isset($_POST['escribir'])){
+<?php
+    if(isset($_POST['agregar'])){
+      $nueva_linea =$_POST['nueva_linea'];
       $archivo = fopen("modos\datos.txt", "a");
-      while(!feof($archivo)){
-        $lineas=fgets($archivo);
-        echo $lineas;
-      }
+      fwrite($archivo, "\n$nueva_linea");
+      fclose($archivo);
     }
     ?>
 
