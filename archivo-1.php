@@ -1,6 +1,6 @@
 <?php include("template/header.php");?>
-   
-<div class="col-md-3">
+
+<div class="col-xs-2">
   <div class="card">
     <img class="card-img-top" src="holder.js/100x180/" alt=""> 
     <div class="card-body">
@@ -34,7 +34,6 @@
       <form action ="<?php $_SERVER['PHP_SELF'];?>" method="post" >
       <input type="submit" name="leer" value="Leer">
     </form>
-  
     <?php
     if(isset($_POST['leer'])){
       $archivo = fopen("modos\datos.txt", "r");
@@ -54,7 +53,7 @@
   <div class="card">
     <img class="card-img-top" src="holder.js/100x180/" alt="">
     <div class="card-body">
-      <h4 class="card-title">Modo de Escritura</h4>
+      <h4 class="card-title">Modo de Agregar</h4>
       <p class="card-text">"a" -> agregar</p>
       <form action ="<?php $_SERVER['PHP_SELF'];?>" method="post" >
       <textarea name="nueva_linea" id="" cols="30" rows="10"></textarea>
@@ -68,18 +67,60 @@
       fclose($archivo);
     }
     ?>
+    </div>
+  </div>
+</div>
 
+<!-- wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww -->
 
+<div class="col-md-3">
+  <div class="card">
+    <img class="card-img-top" src="holder.js/100x180/" alt="">
+    <div class="card-body">
+      <h4 class="card-title">Modo de Escritura</h4>
+      <p class="card-text">w-> escritura</p>
+
+        <form action ="<?php $_SERVER['PHP_SELF'];?>" method="post" >
+      <textarea name="nueva_linea" id="" cols="30" rows="10"></textarea>
+      <input type="submit" name="escribir" value="Sobreescribir">
+    </form>
+<?php
+    if(isset($_POST['escribir'])){
+      $nueva_linea =$_POST['nueva_linea'];
+      $archivo = fopen("modos\datos.txt", "w");
+      fwrite($archivo, "\n$nueva_linea");
+      fclose($archivo);
+    }
+    ?>
 
     </div>
   </div>
 </div>
+
+
+
+
+
 <div class="col-md-3">
   <div class="card">
-    <img class="card-img-top" src="holder.js/100x180/" alt=""> 
+    <img class="card-img-top" src="holder.js/100x180/" alt="">
     <div class="card-body">
-      <h4 class="card-title">Title</h4>
-      <p class="card-text">Text</p>
+      <h4 class="card-title">Modo de Eliminar</h4>
+      <p class="card-text">w-> escritura</p>
+
+        <form action ="<?php $_SERVER['PHP_SELF'];?>" method="post" >
+      <textarea name="nueva_linea" id="" cols="30" rows="10"></textarea>
+      <input type="submit" name="eliminar" value="Eliminar">
+    </form>
+<?php
+    if(isset($_POST['eliminar'])){
+      $nueva_linea =$_POST['nueva_linea'];
+      $archivo = fopen("modos\datos.txt", "w");
+      fwrite($archivo, "\n$nueva_linea");
+      fclose($archivo);
+    }
+    ?>
+
     </div>
   </div>
 </div>
