@@ -8,28 +8,16 @@
   <title>Ficheros</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <ul class="nav navbar-nav">
-          <li class="nav-item">
-              <a class="nav-link" href="index.php">Inicio</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="archivo-1.php">Fichero r</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Fichero w</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Fichero w</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Fichero a</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Fichero x</a>
-          </li>
-      </ul>
-  </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <ul class="nav navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="index.php">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Ficheros.php">Fichero r</a>
+        </li>
+    </ul>
+</nav>
 
 <div class="container">
-  <div class= "row">
+<div class= "row">
