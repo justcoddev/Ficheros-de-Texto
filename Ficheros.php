@@ -2,12 +2,12 @@
 
 <div class="col-xs-2">
   <div class="card">
-    <img class="card-img-top" src="holder.js/100x180/" alt=""> 
+    <img class="card-img-top" src="holder.js/100x180/" alt="">
     <div class="card-body">
       <h4 class="card-title">Ficheros Existentes</h4>
       <p class="card-text">Text</p>
 
-<?php
+      <?php
 // buenas praticas-- va arriba
 $directorio = 'txt';
 $contarchivos = 0;
@@ -33,21 +33,21 @@ if($dir = opendir($directorio)){
     <div class="card-body">
       <h4 class="card-title">Modo de Lectura</h4>
       <p class="card-text">"r"-> read</p>
-      <form action ="<?php $_SERVER['PHP_SELF'];?>" method="post" >
-      <input type="submit" name="leer" value="Leer">
-    </form>
-    <?php
+      <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
+        <input type="submit" name="leer" value="Leer">
+      </form>
+      <?php
     if(isset($_POST['leer'])){
       $archivo = fopen("txt\datos.txt", "r");
       while(!feof($archivo)){
-        $lineas=fgets($archivo);
-        // echo $lineas."<br>";
+              $lineas=fgets($archivo);
+           // echo $lineas."<br>";
         echo "$lineas<br/>";
       }
       fclose($archivo);
     }
     ?>
-      </div>
+    </div>
   </div>
 </div>
 <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
@@ -57,14 +57,14 @@ if($dir = opendir($directorio)){
     <div class="card-body">
       <h4 class="card-title">Modo de Agregar</h4>
       <p class="card-text">"a" -> agregar</p>
-      <form action ="<?php $_SERVER['PHP_SELF'];?>" method="post" >
-      <textarea name="nueva_linea" id="" cols="30" rows="5"></textarea>
-      <input type="submit" name="agregar" value="Agregar">
-    </form>
-<?php
-    if(isset($_POST['agregar'])){
+      <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
+        <textarea name="nueva_linea" id="" cols="30" rows="5"></textarea>
+        <input type="submit" name="agregar" value="Agregar">
+      </form>
+      <?php
+       if(isset($_POST['agregar'])){
       $nueva_linea =$_POST['nueva_linea'];
-      $archivo = fopen("txt\datos.txt", "a");
+          $archivo = fopen("txt\datos.txt", "a");
       fwrite($archivo, "\n$nueva_linea");
       fclose($archivo);
     }
@@ -82,11 +82,11 @@ if($dir = opendir($directorio)){
       <h4 class="card-title">Modo de Escritura</h4>
       <p class="card-text">w-> escritura</p>
 
-        <form action ="<?php $_SERVER['PHP_SELF'];?>" method="post" >
-      <textarea name="nueva_linea" id="" cols="30" rows="5"></textarea>
-      <input type="submit" name="escribir" value="Sobreescribir">
-    </form>
-<?php
+      <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
+        <textarea name="nueva_linea" id="" cols="30" rows="5"></textarea>
+        <input type="submit" name="escribir" value="Sobreescribir">
+      </form>
+      <?php
     if(isset($_POST['escribir'])){
       $nueva_linea =$_POST['nueva_linea'];
       $archivo = fopen("txt\datos.txt", "w");
@@ -109,11 +109,11 @@ if($dir = opendir($directorio)){
       <h4 class="card-title">Eliminar Archivo</h4>
       <p class="card-text">unlink</p>
 
-        <form action ="<?php $_SERVER['PHP_SELF'];?>" method="post" >
-     
-      <input type="submit" name="eliminar" value="Eliminar">
-    </form>
-<?php
+      <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
+
+        <input type="submit" name="eliminar" value="Eliminar">
+      </form>
+      <?php
     if(isset($_POST['eliminar'])){
       $archivo = "txt\datos.txt";
       unlink($archivo);
